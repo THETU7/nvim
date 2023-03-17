@@ -39,6 +39,7 @@ package({
     { 'saadparwaiz1/cmp_luasnip' },
     { 'onsails/lspkind-nvim' },
     { 'windwp/nvim-autopairs', config = conf.auto_pairs },
+    { 'hrsh7th/cmp-nvim-lsp-signature-help' },
   },
 })
 

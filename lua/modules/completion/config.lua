@@ -60,6 +60,7 @@ function config.nvim_cmp()
       { name = 'luasnip' },
       { name = 'path' },
       { name = 'buffer', keyword_length = 5 },
+      { name = 'nvim_lsp_signature_help' },
     }),
   })
 
