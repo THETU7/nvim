@@ -27,7 +27,7 @@ package({
       pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
     })
   end,
-  event = 'VeryLazy',
+  event = 'BufRead',
   dependencies = {
     {
       'JoosepAlviste/nvim-ts-context-commentstring',
@@ -54,22 +54,22 @@ package({
 package({
   'lewis6991/gitsigns.nvim',
   event = { 'BufReadPre', 'BufNewFile' },
-  -- event = "VeryLazy",
+  -- event = 'VeryLazy',
   config = function()
     require('gitsigns').setup()
   end,
 })
 
-package({
-  'rmagatti/auto-session',
-  event = 'VimEnter',
-  config = function()
-    require('auto-session').setup({
-      log_level = 'error',
-      auto_session_suppress_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
-    })
-  end,
-})
+-- package({
+--   'rmagatti/auto-session',
+--   event = 'VimEnter',
+--   config = function()
+--     require('auto-session').setup({
+--       log_level = 'error',
+--       auto_session_suppress_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
+--     })
+--   end,
+-- })
 
 package({
   'phaazon/hop.nvim',
@@ -95,7 +95,7 @@ package({
 
 package({
   'folke/which-key.nvim',
-  event = 'VeryLazy',
+  event = 'BufRead',
   config = function()
     vim.o.timeout = true
     vim.o.timeoutlen = 300
