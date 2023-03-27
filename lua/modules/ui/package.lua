@@ -39,7 +39,7 @@ package({
 
 package({
   'akinsho/nvim-bufferline.lua',
-  event = 'BufRead',
+  event = { 'BufRead', 'BufNewFile' },
   version = 'v3.*',
   config = conf.nvim_bufferline,
   dependencies = { 'nvim-tree/nvim-web-devicons' },

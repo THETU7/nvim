@@ -13,7 +13,7 @@ package({
 
 package({
   'glepnir/hlsearch.nvim',
-  event = 'BufRead',
+  event = { 'BufRead', 'BufNewFile' },
   config = function()
     require('hlsearch').setup()
   end,
@@ -27,7 +27,7 @@ package({
       pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
     })
   end,
-  event = 'BufRead',
+  event = { 'BufRead', 'BufNewFile' },
   dependencies = {
     {
       'JoosepAlviste/nvim-ts-context-commentstring',
@@ -95,7 +95,7 @@ package({
 
 package({
   'folke/which-key.nvim',
-  event = 'BufRead',
+  event = { 'BufRead', 'BufNewFile' },
   config = function()
     vim.o.timeout = true
     vim.o.timeoutlen = 300
