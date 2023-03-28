@@ -155,3 +155,8 @@ package({
     { 'williamboman/mason.nvim' },
   },
 })
+
+package({
+  'h-hg/fcitx.nvim',
+  event = 'VeryLazy',
+})
