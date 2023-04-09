@@ -16,7 +16,16 @@ package({
       config = conf.mason,
     },
     { 'williamboman/mason-lspconfig.nvim', config = conf.mason_lspconfig },
-    { 'jay-babu/mason-null-ls.nvim', config = conf.mason_nullls },
+  },
+  -- lazy = true,
+  -- event = "VeryLazy",
+})
+
+package({
+  'jay-babu/mason-null-ls.nvim',
+  event = { 'BufReadPre', 'BufNewFile' },
+  dependencies = {
+    'williamboman/mason.nvim',
     {
       'jose-elias-alvarez/null-ls.nvim',
       config = function()
@@ -24,8 +33,7 @@ package({
       end,
     },
   },
-  -- lazy = true,
-  -- event = "VeryLazy",
+  config = conf.mason_nullls,
 })
 
 package({

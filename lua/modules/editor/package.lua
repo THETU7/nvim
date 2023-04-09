@@ -22,7 +22,7 @@ package({
 
 package({
   'glepnir/lspsaga.nvim',
-  event = { 'BufRead', 'BufNewFile' },
+  event = 'LspAttach',
   config = function()
     require('lspsaga').setup({})
   end,

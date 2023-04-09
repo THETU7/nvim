@@ -101,9 +101,8 @@ function config.mason_nullls()
     ensure_installed = lspInstall.null_install,
     automatic_installation = false,
     automatic_setup = true, -- Recommended, but optional
+    handlers = {},
   })
-
-  require('mason-null-ls').setup_handlers({})
 end
 
 function config.mason_lspconfig()

@@ -139,7 +139,10 @@ package({
   --keys = { '<F5>', '<F9>', '<F10>', '<F11>', '<F12>' },
   ft = { 'c', 'cpp' },
   dependencies = {
-    { 'mfussenegger/nvim-dap' },
+    {
+      'mfussenegger/nvim-dap',
+      config = conf.dap,
+    },
     {
       'jay-babu/mason-nvim-dap.nvim',
       config = function()
@@ -148,8 +151,8 @@ package({
         require('mason-nvim-dap').setup({
           ensure_installed = install,
           automatic_setup = true,
+          handlers = nil,
         })
-        require('mason-nvim-dap').setup_handlers({})
       end,
     },
     { 'williamboman/mason.nvim' },
@@ -159,4 +162,10 @@ package({
 package({
   'h-hg/fcitx.nvim',
   event = 'VeryLazy',
+})
+
+package({
+  'ziontee113/syntax-tree-surfer',
+  event = { 'BufRead', 'BufNewFile' },
+  config = conf.surfer,
 })
