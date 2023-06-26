@@ -141,7 +141,7 @@ package({
   dependencies = {
     {
       'mfussenegger/nvim-dap',
-      config = conf.dap,
+      -- config = conf.dap,
     },
     {
       'jay-babu/mason-nvim-dap.nvim',
@@ -151,7 +151,15 @@ package({
         require('mason-nvim-dap').setup({
           ensure_installed = install,
           automatic_setup = true,
-          handlers = nil,
+          handlers = {
+            function(config)
+              -- all sources with no handler get passed here
+
+              -- Keep original functionality
+              require('mason-nvim-dap').default_setup(config)
+            end,
+            cppdbg = conf.cpptools,
+          },
         })
       end,
     },
@@ -168,4 +176,15 @@ package({
   'ziontee113/syntax-tree-surfer',
   event = { 'BufRead', 'BufNewFile' },
   config = conf.surfer,
+})
+
+package({
+  'kylechui/nvim-surround',
+  version = '*', -- Use for stability; omit to use `main` branch for the latest features
+  event = { 'BufRead', 'BufNewFile' },
+  config = function()
+    require('nvim-surround').setup({
+      -- Configuration here, or leave empty to use defaults
+    })
+  end,
 })

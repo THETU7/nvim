@@ -56,9 +56,8 @@ function config.toggleterm()
   vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 end
 
-function config.dap()
-  local dap = require('dap')
-  dap.configurations.cpp = {
+function config.cpptools(config_)
+  config_.configurations = {
     {
       name = 'Launch file with formatString',
       type = 'cppdbg',
@@ -77,6 +76,7 @@ function config.dap()
       },
     },
   }
+  require('mason-nvim-dap').default_setup(config_)
 end
 
 function config.surfer()

@@ -9,12 +9,15 @@ install.lsp_install = {
   'marksman',
   'jsonls',
   'yamlls',
+  'pyright',
 }
 
 install.null_install = {
   'stylua',
   'eslint_d',
   'prettierd',
+  'ruff',
+  'cpplint',
 }
 
 return install
