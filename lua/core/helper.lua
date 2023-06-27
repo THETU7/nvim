@@ -14,10 +14,10 @@ function helper.data_path()
 end
 
 function helper.config_path()
-  local cli = require('core.cli')
-  if cli.data_path then
-    return cli.data_path
-  end
+  -- local cli = require('core.cli')
+  -- if cli.data_path then
+  --  return cli.data_path
+  --end
   return vim.fn.stdpath('config')
 end
 
